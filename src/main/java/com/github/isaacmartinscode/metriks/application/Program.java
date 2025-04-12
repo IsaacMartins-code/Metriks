@@ -12,7 +12,7 @@ public class Program extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Program.class.getResource("CpuView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Program.class.getResource("/com/github/isaacmartinscode/metriks/views/CpuView.fxml"));
         mainScene = new Scene(fxmlLoader.load(), 950, 550);
         stage.setResizable(false);
         stage.setScene(mainScene);
