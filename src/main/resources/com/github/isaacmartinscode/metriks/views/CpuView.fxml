@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.github.isaacmartinscode.metriks.controller.CpuViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.isaacmartinscode.metriks.controller.CpuViewController">
+   <children>
+      <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="950.0">
+         <items>
+            <AnchorPane prefHeight="45.0" prefWidth="937.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="164.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="15.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor de Processos" wrappingWidth="144.7939453125">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="372.0" layoutY="10.0" prefHeight="25.0" prefWidth="193.0">
+                     <children>
+                        <Button cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 10px 0px 0px 10px; -fx-background-color: #f08c00;" styleClass="cpuButton" text="CPU">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="memButton" text="Memória">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="discoButton" text="Disco">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0px 10px 10px 0px; -fx-background-color: #c3c3c3;" styleClass="redeButton" text="Rede">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </items>
+      </ToolBar>
+      <TableView cacheShape="false" centerShape="false" focusTraversable="false" layoutY="55.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="341.0" prefWidth="950.0" scaleShape="false" style="-fx-focus-color: #ffff;">
+         <columns>
+            <TableColumn prefWidth="220.0" text="Nome" />
+            <TableColumn prefWidth="74.0" text="PID" />
+            <TableColumn prefWidth="127.0" text="\% CPU" />
+            <TableColumn prefWidth="171.0" text="Threads" />
+            <TableColumn prefWidth="180.0" text="Tempo de CPU" />
+            <TableColumn prefWidth="171.0" text="User" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
+      <AreaChart createSymbols="false" layoutX="355.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="163.0" prefWidth="244.0">
+        <xAxis>
+          <NumberAxis fx:id="yAxis" minorTickLength="1.0" minorTickVisible="false" prefHeight="2.0" prefWidth="363.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" tickUnit="1.0" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis animated="false" minorTickLength="1.0" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" tickUnit="1.0" fx:id="xAxis" />
+        </yAxis>
+      </AreaChart>
+   </children>
 </AnchorPane>
