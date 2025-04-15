@@ -63,9 +63,8 @@
          <columns>
             <TableColumn prefWidth="220.0" text="Nome" />
             <TableColumn prefWidth="74.0" text="PID" />
-            <TableColumn prefWidth="127.0" text="\% CPU" />
+            <TableColumn prefWidth="127.0" text="\% Mem" />
             <TableColumn prefWidth="171.0" text="Threads" />
-            <TableColumn prefWidth="180.0" text="Tempo de CPU" />
             <TableColumn prefWidth="171.0" text="User" />
          </columns>
          <columnResizePolicy>
