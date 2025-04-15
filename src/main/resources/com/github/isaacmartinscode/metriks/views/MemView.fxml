@@ -33,7 +33,7 @@
                   </Text>
                   <HBox layoutX="372.0" layoutY="10.0" prefHeight="25.0" prefWidth="193.0">
                      <children>
-                        <Button cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 10px 0px 0px 10px; -fx-background-color: #c3c3c3;" styleClass="cpuButton" text="CPU">
+                        <Button cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#onCpuButtonAction" scaleShape="false" style="-fx-background-radius: 10px 0px 0px 10px; -fx-background-color: #c3c3c3;" styleClass="cpuButton" text="CPU">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
