@@ -1,4 +1,4 @@
 <div align-items="left">
-<img src="https://github.com/user-attachments/assets/85eba03b-26e8-4bbf-b15f-31a91d9bfaf7" alt="Logo" width=35% height=35% style="vertical-align: top"></img>
+<img src="https://github.com/user-attachments/assets/85eba03b-26e8-4bbf-b15f-31a91d9bfaf7" alt="Logo" width=35% height=35% style="vertical-align: top; padding: 0; margin: 0; float: left;"></img>
 </div>
 
