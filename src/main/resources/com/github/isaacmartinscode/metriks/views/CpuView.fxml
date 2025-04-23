@@ -79,7 +79,7 @@
          </columnResizePolicy>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
-      <AreaChart createSymbols="false" layoutX="355.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="163.0" prefWidth="244.0">
+      <AreaChart createSymbols="false" horizontalGridLinesVisible="false" layoutX="355.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="163.0" prefWidth="244.0" verticalGridLinesVisible="false">
         <xAxis>
           <NumberAxis fx:id="yAxis" minorTickLength="1.0" minorTickVisible="false" prefHeight="2.0" prefWidth="363.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" tickUnit="1.0" />
         </xAxis>
@@ -87,32 +87,22 @@
           <NumberAxis animated="false" minorTickLength="1.0" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" tickUnit="1.0" fx:id="xAxis" />
         </yAxis>
       </AreaChart>
-      <Label layoutX="159.0" layoutY="444.0" prefHeight="25.0" prefWidth="51.0" text="Usuário:">
+      <Label layoutX="159.0" layoutY="444.0" prefHeight="25.0" prefWidth="51.0" text="Usuário:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="159.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" text="Sistema:">
+      <Label layoutX="159.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" text="Sistema:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="350.0" layoutY="415.0" prefHeight="25.0" prefWidth="13.0" text="\%" textFill="#3362ff">
+      <Label layoutX="159.0" layoutY="471.0" prefHeight="25.0" prefWidth="70.0" text="Processos:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="349.0" layoutY="445.0" prefHeight="25.0" prefWidth="13.0" text="\%" textFill="#f08c00">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="159.0" layoutY="471.0" prefHeight="25.0" prefWidth="70.0" text="Processos:">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="159.0" layoutY="498.0" prefHeight="25.0" prefWidth="57.0" text="Threads:">
+      <Label layoutX="159.0" layoutY="498.0" prefHeight="25.0" prefWidth="57.0" text="Threads:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -127,24 +117,19 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="415.0" prefHeight="25.0" prefWidth="103.0" text="Velocidade base:">
+      <Label layoutX="590.0" layoutY="415.0" prefHeight="25.0" prefWidth="103.0" text="Velocidade base:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="445.0" prefHeight="25.0" prefWidth="57.0" text="Núcleos: ">
+      <Label layoutX="590.0" layoutY="445.0" prefHeight="25.0" prefWidth="57.0" text="Núcleos: " textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="473.0" prefHeight="25.0" prefWidth="145.0" text="Processadores Lógicos:">
+      <Label layoutX="590.0" layoutY="473.0" prefHeight="25.0" prefWidth="145.0" text="Processadores Lógicos:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="775.0" layoutY="415.0" prefHeight="25.0" prefWidth="28.0" text="GHz">
-         <font>
-            <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Label alignment="CENTER_RIGHT" layoutX="752.0" layoutY="444.0" prefHeight="25.0" prefWidth="51.0" text="--">
@@ -157,17 +142,17 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="300.0" layoutY="414.0" prefHeight="25.0" prefWidth="45.0" text="--" textFill="#3362ff">
+      <Label alignment="CENTER_RIGHT" layoutX="315.0" layoutY="414.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#7abfff">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="301.0" layoutY="445.0" prefHeight="25.0" prefWidth="45.0" text="--" textFill="#f08c00">
+      <Label alignment="CENTER_RIGHT" layoutX="315.0" layoutY="445.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#f08c00">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="723.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" text="--">
+      <Label alignment="CENTER_RIGHT" layoutX="753.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" text="-- GHz">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

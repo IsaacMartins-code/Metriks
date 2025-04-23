@@ -107,25 +107,20 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="613.0" layoutY="428.0" prefHeight="25.0" prefWidth="43.0" text="--" />
-      <Label alignment="CENTER" layoutX="613.0" layoutY="483.0" prefHeight="25.0" prefWidth="43.0" text="--" />
-      <Label alignment="CENTER" layoutX="656.0" layoutY="484.0" prefHeight="25.0" prefWidth="39.0" text="KB/S">
+      <Label alignment="CENTER" layoutX="633.0" layoutY="428.0" prefHeight="25.0" prefWidth="43.0" text="-- KB/S">
          <font>
             <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="656.0" layoutY="429.0" prefHeight="25.0" prefWidth="39.0" text="KB/S">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
+         </font></Label>
       <Label layoutX="613.0" layoutY="268.0" text="tempo de atividade" textFill="#656565">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="613.0" layoutY="287.0" prefHeight="25.0" prefWidth="43.0" text="--" />
-      <Label alignment="CENTER" layoutX="655.0" layoutY="288.0" prefHeight="25.0" prefWidth="21.0" text="\%">
+      <Label alignment="CENTER" layoutX="614.0" layoutY="287.0" prefHeight="25.0" prefWidth="43.0" text="-- %">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="633.0" layoutY="483.0" prefHeight="25.0" prefWidth="43.0" text="-- KB/S">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
