@@ -65,7 +65,7 @@
             </AnchorPane>
          </items>
       </ToolBar>
-      <TableView cacheShape="false" centerShape="false" focusTraversable="false" layoutY="55.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="326.0" prefWidth="950.0" scaleShape="false" style="-fx-focus-color: #ffff;">
+      <TableView cacheShape="false" centerShape="false" focusTraversable="false" layoutY="55.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="341.0" prefWidth="950.0" scaleShape="false" style="-fx-focus-color: #ffff;">
          <columns>
             <TableColumn prefWidth="277.0" text="Nome" />
             <TableColumn prefWidth="141.0" text="Interface" />
@@ -78,8 +78,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
-      <AreaChart createSymbols="false" layoutX="144.0" layoutY="394.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="150.0" prefWidth="460.0" style="-fx-vertical-grid-lines-visible: false; -fx-horizontal-grid-lines-visible: false;">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
+      <AreaChart createSymbols="false" layoutX="144.0" layoutY="398.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="150.0" prefWidth="460.0" style="-fx-vertical-grid-lines-visible: false; -fx-horizontal-grid-lines-visible: false;">
          <xAxis>
             <NumberAxis fx:id="yAxis1" minorTickLength="1.0" minorTickVisible="false" prefHeight="2.0" prefWidth="363.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" tickUnit="1.0" />
          </xAxis>
