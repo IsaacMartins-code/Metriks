@@ -34,22 +34,22 @@
                   </Text>
                   <HBox layoutX="372.0" layoutY="10.0" prefHeight="25.0" prefWidth="193.0">
                      <children>
-                        <Button fx:id="cpuButton" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 10px 0px 0px 10px; -fx-background-color: #f08c00;" styleClass="cpuButton" text="CPU">
+                        <Button cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 10px 0px 0px 10px; -fx-background-color: #f08c00;" styleClass="cpuButton" text="CPU">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="memButton" cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" onAction="#onMemButtonAction" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="memButton" text="Memória">
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" onAction="#onMemButtonAction" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="memButton" text="Memória">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="discoButton" text="Disco">
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" onAction="#onDiskButtonAction" scaleShape="false" style="-fx-background-radius: 0px; -fx-background-color: #c3c3c3;" styleClass="discoButton" text="Disco">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0px 10px 10px 0px; -fx-background-color: #c3c3c3;" styleClass="redeButton" text="Rede">
+                        <Button cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" onAction="#onNetworkButtonAction" scaleShape="false" style="-fx-background-radius: 0px 10px 10px 0px; -fx-background-color: #c3c3c3;" styleClass="redeButton" text="Rede">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
