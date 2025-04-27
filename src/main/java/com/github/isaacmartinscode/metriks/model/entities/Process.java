@@ -1,4 +1,4 @@
-package com.github.isaacmartinscode.metriks.model.service;
+package com.github.isaacmartinscode.metriks.model.entities;
 
 public abstract class Process {
 

@@ -1,4 +1,4 @@
-package com.github.isaacmartinscode.metriks.model.service;
+package com.github.isaacmartinscode.metriks.model.entities;
 
-public class MemProcess extends Process{
+public class MemProcess extends Process {
 }
