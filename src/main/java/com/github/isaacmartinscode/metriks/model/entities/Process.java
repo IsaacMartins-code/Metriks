@@ -45,6 +45,4 @@ public abstract class Process {
     public void setUser(String user) {
         this.user = user;
     }
-
-    public abstract double calcUsagePercentage();
 }
