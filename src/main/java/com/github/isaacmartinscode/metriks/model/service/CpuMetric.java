@@ -26,7 +26,7 @@ public class CpuMetric {
     private static HashMap<Integer, OSProcess> prevOSProcess;
     private static HashMap<Integer, Process> processHashMap;
     private static ObservableList<Process> processList;
-    private static ObservableList<XYChart.Data<Number, Number>> userSeriePointList, systemSeriePointList;
+    private static XYChart.Series<Number, Number> userSeriePointList, systemSeriePointList;
     private static ScheduledExecutorService scheduler;
     private static int tickCounter = 0;
     private static boolean updating = false;
@@ -89,12 +89,12 @@ public class CpuMetric {
     }
 
     private void refreshSeriePointLists() {
-        userSeriePointList.add(new XYChart.Data<>(tickCounter, userPercentage));
-        systemSeriePointList.add(new XYChart.Data<>(tickCounter, systemPercentage));
+        userSeriePointList.getData().add(new XYChart.Data<>(tickCounter, userPercentage));
+        systemSeriePointList.getData().add(new XYChart.Data<>(tickCounter, systemPercentage));
 
         if(tickCounter == 59) {
-            userSeriePointList.remove(0);
-            systemSeriePointList.remove(0);
+            userSeriePointList.getData().remove(0);
+            systemSeriePointList.getData().remove(0);
             tickCounter = 0;
         } else {
             tickCounter++;
@@ -151,11 +151,11 @@ public class CpuMetric {
         return processList;
     }
 
-    public static ObservableList<XYChart.Data<Number, Number>> getUserSeriePointList() {
+    public static XYChart.Series<Number, Number> getUserSeriePointList() {
         return userSeriePointList;
     }
 
-    public static ObservableList<XYChart.Data<Number, Number>> getSystemSeriePointList() {
+    public static XYChart.Series<Number, Number> getSystemSeriePointList() {
         return systemSeriePointList;
     }
 }
