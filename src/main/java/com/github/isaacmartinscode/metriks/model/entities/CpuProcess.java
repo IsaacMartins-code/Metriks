@@ -7,7 +7,6 @@ public class CpuProcess extends Process {
 
     private String cpuUsageTime;
     private double cpuUsagePercentage;
-    private boolean firstTick = true;
 
     public CpuProcess(String name, int pId, int threads, String user, long cpuMsUsageTime) {
         super(name, pId, threads, user);
@@ -20,14 +19,6 @@ public class CpuProcess extends Process {
 
     public double getCpuUsagePercentage() {
         return cpuUsagePercentage;
-    }
-
-    public boolean isFirstTick() {
-        return firstTick;
-    }
-
-    public void setFirstTick(boolean firstTick) {
-        this.firstTick = firstTick;
     }
 
     public void convertCpuUsageTime(long cpuMsUsageTime) {
