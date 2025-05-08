@@ -2,36 +2,41 @@ package com.github.isaacmartinscode.metriks.model.service;
 
 import com.github.isaacmartinscode.metriks.model.entities.CpuProcess;
 import com.github.isaacmartinscode.metriks.model.entities.Process;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import oshi.hardware.CentralProcessor;
 import oshi.software.os.OSProcess;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class CpuMetric {
 
-    private static CentralProcessor.ProcessorIdentifier cpuIdentifier = SystemService.cpu.getProcessorIdentifier();
-    private static String cpuName = cpuIdentifier.getName();
-    private static double baseClock = cpuIdentifier.getVendorFreq() / 1_000_000_000.0;
-    private static double userPercentage, systemPercentage;
-    private static int totalCore = SystemService.cpu.getPhysicalProcessorCount();
-    private static int totalLogicCore = SystemService.cpu.getLogicalProcessorCount();
-    private static int totalProcesses, totalProcessesThreads;
-    private static long[] prevTicks;
+    private static final CentralProcessor.ProcessorIdentifier cpuIdentifier = SystemService.cpu.getProcessorIdentifier();
+    private static final String cpuName = cpuIdentifier.getName();
+    private static final double baseClock = cpuIdentifier.getVendorFreq() / 1_000_000_000.0;
+    private static double userPercentage = 0, systemPercentage = 0;
+    private static final int totalCore = SystemService.cpu.getPhysicalProcessorCount();
+    private static final int totalLogicCore = SystemService.cpu.getLogicalProcessorCount();
+    private static int totalProcesses = 0, totalProcessesThreads = 0;
+    private static long[] prevTicks = SystemService.cpu.getSystemCpuLoadTicks();
     private static List<OSProcess> processes = new ArrayList<>();
-    private static HashMap<Integer, OSProcess> prevOSProcess;
-    private static HashMap<Integer, Process> processHashMap;
-    private static ObservableList<Process> processList;
-    private static XYChart.Series<Number, Number> userSeriePointList, systemSeriePointList;
-    private static ScheduledExecutorService scheduler;
+    private static final HashMap<Integer, OSProcess> prevOSProcess = new HashMap<>();
+    private static final HashMap<Integer, CpuProcess> processHashMap =  new HashMap<>();
+    private static final ObservableList<Process> processList = FXCollections.observableArrayList();
+    private static final ObservableList<XYChart.Data<Number, Number>> userSeriePointList = FXCollections.observableArrayList();
+    private static final ObservableList<XYChart.Data<Number, Number>> systemSeriePointList = FXCollections.observableArrayList();
+    private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private static int tickCounter = 0;
     private static boolean updating = false;
 
-    private void calcUsagePercentage() {
+    public void calcUsagePercentage() {
         if(updating) {
             long[] currentTicks = SystemService.cpu.getSystemCpuLoadTicks();
             long userTimeVariation = currentTicks[CentralProcessor.TickType.USER.getIndex()] - prevTicks[CentralProcessor.TickType.USER.getIndex()];
@@ -42,63 +47,60 @@ public class CpuMetric {
                 totalTimeVariation += (currentTicks[i] - prevTicks[i]);
             }
 
-            userPercentage = (double) userTimeVariation / totalTimeVariation;
-            systemPercentage = (double) systemTimeVariation / totalTimeVariation;
+            userPercentage = (double) userTimeVariation / totalTimeVariation * 100.0;
+            systemPercentage = (double) systemTimeVariation / totalTimeVariation * 100.0;
 
             prevTicks = currentTicks;
-        } else {
-            prevTicks = SystemService.cpu.getSystemCpuLoadTicks();
         }
     }
 
-    private void calcProcessInfo() {
+    public void calcProcessInfo() {
+        totalProcesses = 0;
+        totalProcessesThreads = 0;
         for(OSProcess p : processes) {
             totalProcessesThreads += p.getThreadCount();
             totalProcesses++;
         }
     }
 
-    private void refreshProcessList() {
+    public void refreshProcessList() {
+        processes.clear();
         processes = SystemService.os.getProcesses();
-        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID);
-        if(updating) {
-            for(OSProcess p : processes) {
-                int pid = p.getProcessID();
-                CpuProcess cpuProcess;
-                if(processHashMap.containsKey(pid)) {
-                    cpuProcess = (CpuProcess) processHashMap.get(pid);
-                    processList.remove(cpuProcess);
-                    cpuProcess.calcUsagePercentage(prevOSProcess.get(pid), p, totalLogicCore);
-                    cpuProcess.convertCpuUsageTime(p.getUserTime() + p.getKernelTime());
-                } else {
-                    cpuProcess = new CpuProcess(p.getName(), pid, p.getThreadCount(), p.getUserID(), p.getUserTime() + p.getKernelTime());
-                    processHashMap.put(pid, cpuProcess);
-                }
-                processList.add(cpuProcess);
-                prevOSProcess.put(pid, p);
-            }
-        } else {
-            for(OSProcess p : processes) {
-                int pid = p.getProcessID();
-                CpuProcess cpuProcess = new CpuProcess(p.getName(), pid, p.getThreadCount(), p.getUserID(), p.getUserTime() + p.getKernelTime());
+        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getProcessID() == 0);
+
+        for (OSProcess p : processes) {
+            CpuProcess cpuProcess;
+            int pid = p.getProcessID();
+            String user = p.getUser().equals("unknown") ? "Desconhecido" : p.getUser();
+
+            if (updating && processHashMap.containsKey(pid)) {
+                cpuProcess = processHashMap.get(pid);
+                cpuProcess.calcUsagePercentage(prevOSProcess.get(pid), p, totalLogicCore);
+                cpuProcess.convertCpuUsageTime(p.getUserTime() + p.getKernelTime());
+            } else {
+                cpuProcess = new CpuProcess(p.getName(), pid, p.getThreadCount(), user, p.getUserTime() + p.getKernelTime());
                 processHashMap.put(pid, cpuProcess);
-                prevOSProcess.put(pid, p);
             }
-            processList.addAll(processHashMap.values());
+            prevOSProcess.put(pid, p);
         }
+        processList.setAll(processHashMap.values()
+                        .stream()
+                        .sorted(Comparator.comparing(CpuProcess::getCpuUsagePercentage).reversed())
+                        .collect(Collectors.toList())
+        );
     }
 
-    private void refreshSeriePointLists() {
-        userSeriePointList.getData().add(new XYChart.Data<>(tickCounter, userPercentage));
-        systemSeriePointList.getData().add(new XYChart.Data<>(tickCounter, systemPercentage));
 
-        if(tickCounter == 59) {
-            userSeriePointList.getData().remove(0);
-            systemSeriePointList.getData().remove(0);
-            tickCounter = 0;
-        } else {
-            tickCounter++;
+    public void refreshSeriePointLists() {
+        userSeriePointList.forEach(data -> data.setXValue(data.getXValue().intValue() + 1));
+        systemSeriePointList.forEach(data -> data.setXValue(data.getXValue().intValue() + 1));
+        userSeriePointList.addFirst(new XYChart.Data<>(0, userPercentage));
+        systemSeriePointList.addFirst(new XYChart.Data<>(0, systemPercentage));
+        if (tickCounter > 60) {
+            userSeriePointList.removeLast();
+            systemSeriePointList.removeLast();
         }
+        tickCounter++;
     }
 
     public void initScheduledRefresh() {
@@ -110,9 +112,9 @@ public class CpuMetric {
             refreshProcessList();
             calcProcessInfo();
             refreshSeriePointLists();
+            updating = true;
         };
         scheduler.scheduleAtFixedRate(refresh, 0, 1, TimeUnit.SECONDS);
-        updating = true;
     }
 
     public static String getCpuName() {
@@ -151,11 +153,11 @@ public class CpuMetric {
         return processList;
     }
 
-    public static XYChart.Series<Number, Number> getUserSeriePointList() {
-        return userSeriePointList;
+    public static XYChart.Series<Number, Number> getUserSerie() {
+        return new XYChart.Series<>(userSeriePointList);
     }
 
-    public static XYChart.Series<Number, Number> getSystemSeriePointList() {
-        return systemSeriePointList;
+    public static XYChart.Series<Number, Number> getSystemSerie() {
+        return new XYChart.Series<>(systemSeriePointList);
     }
 }

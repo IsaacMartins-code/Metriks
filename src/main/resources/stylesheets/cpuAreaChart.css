@@ -1,0 +1,15 @@
+.chart-series-area-line.series0 {
+    -fx-stroke: #f08c00;
+}
+
+.chart-series-area-fill.series0 {
+    -fx-fill: rgba(240, 140, 0, 0.3);
+}
+
+.chart-series-area-line.series1 {
+    -fx-stroke: #7abfff;
+}
+
+.chart-series-area-fill.series1 {
+    -fx-fill: rgba(122, 191, 255, 0.3);
+}

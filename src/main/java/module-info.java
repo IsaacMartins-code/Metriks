@@ -5,5 +5,6 @@ module com.github.isaacmartinscode.metriks {
 
     opens com.github.isaacmartinscode.metriks.controller to javafx.fxml;
     opens com.github.isaacmartinscode.metriks.views to javafx.fxml;
+    opens com.github.isaacmartinscode.metriks.model.entities;
     exports com.github.isaacmartinscode.metriks.application;
 }

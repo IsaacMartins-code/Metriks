@@ -22,11 +22,11 @@ public abstract class Process {
         this.name = name;
     }
 
-    public int getpId() {
+    public int getPId() {
         return pId;
     }
 
-    public void setpId(int pId) {
+    public void setPId(int pId) {
         this.pId = pId;
     }
 
