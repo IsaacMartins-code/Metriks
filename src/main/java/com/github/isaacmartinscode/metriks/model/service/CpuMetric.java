@@ -36,7 +36,7 @@ public class CpuMetric {
     private static int tickCounter = 0;
     private static boolean updating = false;
 
-    public void calcUsagePercentage() {
+    private void calcUsagePercentage() {
         if(updating) {
             long[] currentTicks = SystemService.cpu.getSystemCpuLoadTicks();
             long userTimeVariation = currentTicks[CentralProcessor.TickType.USER.getIndex()] - prevTicks[CentralProcessor.TickType.USER.getIndex()];
@@ -54,7 +54,7 @@ public class CpuMetric {
         }
     }
 
-    public void calcProcessInfo() {
+    private void calcProcessInfo() {
         totalProcesses = 0;
         totalProcessesThreads = 0;
         for(OSProcess p : processes) {
@@ -63,7 +63,7 @@ public class CpuMetric {
         }
     }
 
-    public void refreshProcessList() {
+    private void refreshProcessList() {
         processes.clear();
         processes = SystemService.os.getProcesses();
         processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getProcessID() == 0);
@@ -91,7 +91,7 @@ public class CpuMetric {
     }
 
 
-    public void refreshSeriePointLists() {
+    private void refreshSeriePointLists() {
         userSeriePointList.forEach(data -> data.setXValue(data.getXValue().intValue() + 1));
         systemSeriePointList.forEach(data -> data.setXValue(data.getXValue().intValue() + 1));
         userSeriePointList.addFirst(new XYChart.Data<>(0, userPercentage));

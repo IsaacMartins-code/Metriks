@@ -67,7 +67,7 @@ public class CpuViewController implements Initializable {
 
     @FXML
     private AreaChart<Number, Number> areaChart;
-    private ObservableList<com.github.isaacmartinscode.metriks.model.entities.Process> processList = CpuMetric.getProcessList();
+    private final ObservableList<com.github.isaacmartinscode.metriks.model.entities.Process> processList = CpuMetric.getProcessList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
