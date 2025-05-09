@@ -6,7 +6,8 @@ import java.time.Duration;
 public class CpuProcess extends Process {
 
     private String cpuUsageTime;
-    private String cpuUsagePercentage = "0,0";
+    private String formattedUsagePercentage = "0,0 %";
+    private double cpuUsage;
 
     public CpuProcess(String name, int pId, int threads, String user, long cpuMsUsageTime) {
         super(name, pId, threads, user);
@@ -17,8 +18,12 @@ public class CpuProcess extends Process {
         return cpuUsageTime;
     }
 
-    public String getCpuUsagePercentage() {
-        return cpuUsagePercentage + " %";
+    public String getFormattedUsagePercentage() {
+        return formattedUsagePercentage;
+    }
+
+    public double getCpuUsage() {
+        return cpuUsage;
     }
 
     public void convertCpuUsageTime(long cpuMsUsageTime) {
@@ -30,7 +35,7 @@ public class CpuProcess extends Process {
     }
 
     public void calcUsagePercentage(OSProcess previousTick, OSProcess currentTick, int totalLogicCore) {
-        double usage = currentTick.getProcessCpuLoadBetweenTicks(previousTick) * 100.0 / totalLogicCore;
-        cpuUsagePercentage = String.format("%.1f", usage);
+        cpuUsage = currentTick.getProcessCpuLoadBetweenTicks(previousTick) * 100.0 / totalLogicCore;
+        formattedUsagePercentage = String.format("%.1f", cpuUsage) + " %";
     }
 }

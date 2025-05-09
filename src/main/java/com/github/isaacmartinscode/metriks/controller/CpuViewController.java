@@ -89,7 +89,7 @@ public class CpuViewController implements Initializable {
         areaChart.getData().addAll(CpuMetric.getUserSerie(), CpuMetric.getSystemSerie());
         TcName.setCellValueFactory(new PropertyValueFactory<>("name"));
         TcPid.setCellValueFactory(new PropertyValueFactory<>("pId"));
-        TcUsagePercentage.setCellValueFactory(new PropertyValueFactory<>("cpuUsagePercentage"));
+        TcUsagePercentage.setCellValueFactory(new PropertyValueFactory<>("formattedUsagePercentage"));
         TcThreads.setCellValueFactory(new PropertyValueFactory<>("threads"));
         TcCpuUsageTime.setCellValueFactory(new PropertyValueFactory<>("cpuUsageTime"));
         TcUser.setCellValueFactory(new PropertyValueFactory<>("user"));
