@@ -80,8 +80,8 @@ public class CpuViewController implements Initializable {
         totalLogicCore.setText(String.valueOf(cpuMetric.getTotalLogicCore()));
         totalProcesses.setText(String.valueOf(cpuMetric.getTotalProcesses()));
         totalProcessesThreads.setText(String.valueOf(cpuMetric.getTotalProcessesThreads()));
-        userPercentage.setText(String.format("%.2f", cpuMetric.getUserPercentage()) + " %");
-        systemPercentage.setText(String.format("%.2f", cpuMetric.getSystemPercentage()) + " %");
+        userPercentage.setText(String.format("%.1f", cpuMetric.getUserPercentage()) + " %");
+        systemPercentage.setText(String.format("%.1f", cpuMetric.getSystemPercentage()) + " %");
     }
 
     private void initializeNodes() {
