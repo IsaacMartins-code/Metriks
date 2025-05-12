@@ -67,26 +67,26 @@ public class CpuViewController implements Initializable {
 
     @FXML
     private AreaChart<Number, Number> areaChart;
-    private final ObservableList<com.github.isaacmartinscode.metriks.model.entities.Process> processList = CpuMetric.getProcessList();
+    private final ObservableList<com.github.isaacmartinscode.metriks.model.entities.Process> processList = cpuMetric.getProcessList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cpuMetric.initScheduledRefresh();
         initializeNodes();
         initUIRefresh();
-        cpuName.setText(CpuMetric.getCpuName());
-        baseClock.setText(String.format("%.2f", CpuMetric.getBaseClock()) + " GHz");
-        totalCore.setText(String.valueOf(CpuMetric.getTotalCore()));
-        totalLogicCore.setText(String.valueOf(CpuMetric.getTotalLogicCore()));
-        totalProcesses.setText(String.valueOf(CpuMetric.getTotalProcesses()));
-        totalProcessesThreads.setText(String.valueOf(CpuMetric.getTotalProcessesThreads()));
-        userPercentage.setText(String.format("%.2f", CpuMetric.getUserPercentage()) + " %");
-        systemPercentage.setText(String.format("%.2f", CpuMetric.getSystemPercentage()) + " %");
+        cpuName.setText(cpuMetric.getCpuName());
+        baseClock.setText(String.format("%.2f", cpuMetric.getBaseClock()) + " GHz");
+        totalCore.setText(String.valueOf(cpuMetric.getTotalCore()));
+        totalLogicCore.setText(String.valueOf(cpuMetric.getTotalLogicCore()));
+        totalProcesses.setText(String.valueOf(cpuMetric.getTotalProcesses()));
+        totalProcessesThreads.setText(String.valueOf(cpuMetric.getTotalProcessesThreads()));
+        userPercentage.setText(String.format("%.2f", cpuMetric.getUserPercentage()) + " %");
+        systemPercentage.setText(String.format("%.2f", cpuMetric.getSystemPercentage()) + " %");
     }
 
     private void initializeNodes() {
         tableView.setItems(processList);
-        areaChart.getData().addAll(CpuMetric.getUserSerie(), CpuMetric.getSystemSerie());
+        areaChart.getData().addAll(cpuMetric.getUserSerie(), cpuMetric.getSystemSerie());
         TcName.setCellValueFactory(new PropertyValueFactory<>("name"));
         TcPid.setCellValueFactory(new PropertyValueFactory<>("pId"));
         TcUsagePercentage.setCellValueFactory(new PropertyValueFactory<>("formattedUsagePercentage"));
@@ -96,15 +96,15 @@ public class CpuViewController implements Initializable {
     }
 
     private void refreshUI() {
-        totalProcesses.setText(String.valueOf(CpuMetric.getTotalProcesses()));
-        totalProcessesThreads.setText(String.valueOf(CpuMetric.getTotalProcessesThreads()));
-        userPercentage.setText(String.format("%.1f", CpuMetric.getUserPercentage()) + " %");
-        systemPercentage.setText(String.format("%.1f", CpuMetric.getSystemPercentage()) + " %");
+        totalProcesses.setText(String.valueOf(cpuMetric.getTotalProcesses()));
+        totalProcessesThreads.setText(String.valueOf(cpuMetric.getTotalProcessesThreads()));
+        userPercentage.setText(String.format("%.1f", cpuMetric.getUserPercentage()) + " %");
+        systemPercentage.setText(String.format("%.1f", cpuMetric.getSystemPercentage()) + " %");
     }
 
     private void initUIRefresh() {
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), event -> refreshUI())
+                new KeyFrame(Duration.seconds(1.5), event -> refreshUI())
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();

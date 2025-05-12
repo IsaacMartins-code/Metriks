@@ -114,50 +114,50 @@ public class CpuMetric {
             refreshSeriePointLists();
             updating = true;
         };
-        scheduler.scheduleAtFixedRate(refresh, 0, 1, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(refresh, 0, (long) 1.5, TimeUnit.SECONDS);
     }
 
-    public static String getCpuName() {
+    public String getCpuName() {
         return cpuName;
     }
 
-    public static double getBaseClock() {
+    public double getBaseClock() {
         return baseClock;
     }
 
-    public static double getUserPercentage() {
+    public double getUserPercentage() {
         return userPercentage;
     }
 
-    public static double getSystemPercentage() {
+    public double getSystemPercentage() {
         return systemPercentage;
     }
 
-    public static int getTotalCore() {
+    public int getTotalCore() {
         return totalCore;
     }
 
-    public static int getTotalLogicCore() {
+    public int getTotalLogicCore() {
         return totalLogicCore;
     }
 
-    public static int getTotalProcesses() {
+    public int getTotalProcesses() {
         return totalProcesses;
     }
 
-    public static int getTotalProcessesThreads() {
+    public int getTotalProcessesThreads() {
         return totalProcessesThreads;
     }
 
-    public static ObservableList<Process> getProcessList() {
+    public ObservableList<Process> getProcessList() {
         return processList;
     }
 
-    public static XYChart.Series<Number, Number> getUserSerie() {
+    public XYChart.Series<Number, Number> getUserSerie() {
         return new XYChart.Series<>(userSeriePointList);
     }
 
-    public static XYChart.Series<Number, Number> getSystemSerie() {
+    public XYChart.Series<Number, Number> getSystemSerie() {
         return new XYChart.Series<>(systemSeriePointList);
     }
 }
