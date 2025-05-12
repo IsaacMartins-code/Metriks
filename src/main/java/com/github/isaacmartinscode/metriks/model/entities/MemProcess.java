@@ -17,9 +17,8 @@ public class MemProcess extends Process {
         return memUsage;
     }
 
-    public void calcUsagePercentage(long memBytesUsage, double totalMemory) {
-        double memGbUsage = memBytesUsage / Math.pow(1024, 3);
-        memUsage = memGbUsage * 100.0 / totalMemory;
+    public void calcUsagePercentage(long residentSize) {
+        memUsage = residentSize / Math.pow(1024, 3);
         formattedUsagePercentage = String.format("%.1f", memUsage) + " %";
     }
 }
