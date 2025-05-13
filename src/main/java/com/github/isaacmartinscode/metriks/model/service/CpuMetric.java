@@ -64,9 +64,14 @@ public class CpuMetric {
     }
 
     private void refreshProcessList() {
-        processes.clear();
         processes = SystemService.os.getProcesses();
-        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getProcessID() == 0);
+        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getName().equalsIgnoreCase("Idle") || p.getName().equalsIgnoreCase("Memory Compression"));
+        List<Integer> activeProcesses = processes
+                .stream()
+                .map(OSProcess::getProcessID)
+                .toList();
+        processHashMap.keySet().removeIf(pid -> !activeProcesses.contains(pid));
+        prevOSProcess.keySet().removeIf(pid -> !activeProcesses.contains(pid));
 
         for (OSProcess p : processes) {
             CpuProcess cpuProcess;

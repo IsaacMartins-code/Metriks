@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import oshi.hardware.PhysicalMemory;
 import oshi.software.os.OSProcess;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -19,15 +18,14 @@ import java.util.stream.Collectors;
 public class MemMetric {
 
     private static final List<PhysicalMemory> physicalMemories = SystemService.hardware.getMemory().getPhysicalMemory();
-    private static double totalMemory = convertTotalMemory();
-    private static double usableMemory = SystemService.hardware.getMemory().getTotal() / Math.pow(1024, 3);
-    private static double hardwareReserved = totalMemory - usableMemory;
+    private static final double totalMemory = convertTotalMemory();
+    private static final double usableMemory = SystemService.hardware.getMemory().getTotal() / Math.pow(1024, 3);
+    private static final double hardwareReserved = totalMemory - usableMemory;
     private static double usedMemory;
     private static int usedMemoryPercentage;
-    private static int frequency = convertMemoryFrequency();
-    private static int totalSlotsUsed = physicalMemories.size();
-    private static String type = physicalMemories.getFirst().getMemoryType();
-    private static List<OSProcess> processes = new ArrayList<>();
+    private static final int frequency = convertMemoryFrequency();
+    private static final int totalSlotsUsed = physicalMemories.size();
+    private static final String type = physicalMemories.getFirst().getMemoryType();
     private static final HashMap<Integer, MemProcess> processHashMap = new HashMap<>();
     private static final ObservableList<Process> processList = FXCollections.observableArrayList();
     private static final ObservableList<XYChart.Data<Number, Number>> seriePointList = FXCollections.observableArrayList();
@@ -58,9 +56,14 @@ public class MemMetric {
     }
 
     private void refreshProcessList() {
-        processes.clear();
-        processes = SystemService.os.getProcesses();
-        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getProcessID() == 0);
+        List<OSProcess> processes = SystemService.os.getProcesses();
+        processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getName().equalsIgnoreCase("Idle") || p.getName().equalsIgnoreCase("Memory Compression"));
+        List<Integer> activeProcesses = processes
+                .stream()
+                .map(OSProcess::getProcessID)
+                .toList();
+        processHashMap.keySet().removeIf(pid -> !activeProcesses.contains(pid));
+
         for(OSProcess p : processes) {
             MemProcess memProcess;
             int pid = p.getProcessID();
