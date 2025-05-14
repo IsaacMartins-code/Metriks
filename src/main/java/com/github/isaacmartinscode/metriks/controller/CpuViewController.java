@@ -71,7 +71,6 @@ public class CpuViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cpuMetric.initScheduledRefresh();
         initializeNodes();
         initUIRefresh();
         cpuName.setText(cpuMetric.getCpuName());

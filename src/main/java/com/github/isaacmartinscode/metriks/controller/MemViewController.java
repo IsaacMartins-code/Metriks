@@ -69,7 +69,6 @@ public class MemViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        memMetric.initScheduledRefresh();
         initializeNodes();
         initUIRefresh();
         totalMemory.setText(String.format("%.1f", memMetric.getTotalMemory()) + " GB");

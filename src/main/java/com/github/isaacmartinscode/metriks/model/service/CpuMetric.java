@@ -122,6 +122,10 @@ public class CpuMetric {
         scheduler.scheduleAtFixedRate(refresh, 0, (long) 1.5, TimeUnit.SECONDS);
     }
 
+    public void endScheduledRefresh() {
+        scheduler.shutdownNow();
+    }
+
     public String getCpuName() {
         return cpuName;
     }
