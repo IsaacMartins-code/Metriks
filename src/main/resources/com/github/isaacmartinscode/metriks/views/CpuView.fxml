@@ -67,12 +67,12 @@
       </ToolBar>
       <TableView fx:id="tableView" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="55.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="341.0" prefWidth="950.0" scaleShape="false" style="-fx-focus-color: #ffff;">
          <columns>
-            <TableColumn fx:id="TcName" editable="false" prefWidth="220.0" sortable="false" text="Nome" />
-            <TableColumn fx:id="TcPid" editable="false" prefWidth="74.0" sortable="false" text="PID" />
-            <TableColumn fx:id="TcUsagePercentage" editable="false" prefWidth="127.0" sortable="false" text="\% CPU" />
-            <TableColumn fx:id="TcThreads" editable="false" prefWidth="171.0" sortable="false" text="Threads" />
-            <TableColumn fx:id="TcCpuUsageTime" editable="false" prefWidth="180.0" sortable="false" text="Tempo de CPU" />
-            <TableColumn fx:id="TcUser" editable="false" prefWidth="171.0" sortable="false" text="User" />
+            <TableColumn fx:id="tCName" editable="false" prefWidth="220.0" sortable="false" text="Nome" />
+            <TableColumn fx:id="tCPid" editable="false" prefWidth="74.0" sortable="false" text="PID" />
+            <TableColumn fx:id="tCUsagePercentage" editable="false" prefWidth="127.0" sortable="false" text="\% CPU" />
+            <TableColumn fx:id="tCThreads" editable="false" prefWidth="171.0" sortable="false" text="Threads" />
+            <TableColumn fx:id="tCCpuUsageTime" editable="false" prefWidth="180.0" sortable="false" text="Tempo de CPU" />
+            <TableColumn fx:id="tCUser" editable="false" prefWidth="171.0" sortable="false" text="User" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

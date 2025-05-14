@@ -48,22 +48,22 @@ public class CpuViewController implements Initializable {
     private TableView<com.github.isaacmartinscode.metriks.model.entities.Process> tableView;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> TcName;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCName;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> TcPid;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCPid;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> TcUsagePercentage;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUsagePercentage;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> TcThreads;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCThreads;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> TcCpuUsageTime;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCCpuUsageTime;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> TcUser;
+    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUser;
 
     @FXML
     private AreaChart<Number, Number> areaChart;
@@ -86,12 +86,12 @@ public class CpuViewController implements Initializable {
     private void initializeNodes() {
         tableView.setItems(processList);
         areaChart.getData().addAll(cpuMetric.getUserSerie(), cpuMetric.getSystemSerie());
-        TcName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        TcPid.setCellValueFactory(new PropertyValueFactory<>("pId"));
-        TcUsagePercentage.setCellValueFactory(new PropertyValueFactory<>("formattedUsagePercentage"));
-        TcThreads.setCellValueFactory(new PropertyValueFactory<>("threads"));
-        TcCpuUsageTime.setCellValueFactory(new PropertyValueFactory<>("cpuUsageTime"));
-        TcUser.setCellValueFactory(new PropertyValueFactory<>("user"));
+        tCName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tCPid.setCellValueFactory(new PropertyValueFactory<>("pId"));
+        tCUsagePercentage.setCellValueFactory(new PropertyValueFactory<>("formattedUsagePercentage"));
+        tCThreads.setCellValueFactory(new PropertyValueFactory<>("threads"));
+        tCCpuUsageTime.setCellValueFactory(new PropertyValueFactory<>("cpuUsageTime"));
+        tCUser.setCellValueFactory(new PropertyValueFactory<>("user"));
     }
 
     private void refreshUI() {
