@@ -1,5 +1,6 @@
 package com.github.isaacmartinscode.metriks.controller;
 
+import com.github.isaacmartinscode.metriks.model.entities.process.Process;
 import com.github.isaacmartinscode.metriks.model.service.CpuMetric;
 import com.github.isaacmartinscode.metriks.model.util.ChangeView;
 import javafx.animation.KeyFrame;
@@ -45,29 +46,29 @@ public class CpuViewController implements Initializable {
     private Label systemPercentage;
 
     @FXML
-    private TableView<com.github.isaacmartinscode.metriks.model.entities.Process> tableView;
+    private TableView<Process> tableView;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCName;
+    private TableColumn<Process, String> tCName;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCPid;
+    private TableColumn<Process, Integer> tCPid;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUsagePercentage;
+    private TableColumn<Process, String> tCUsagePercentage;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCThreads;
+    private TableColumn<Process, Integer> tCThreads;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCCpuUsageTime;
+    private TableColumn<Process, String> tCCpuUsageTime;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUser;
+    private TableColumn<Process, String> tCUser;
 
     @FXML
     private AreaChart<Number, Number> areaChart;
-    private final ObservableList<com.github.isaacmartinscode.metriks.model.entities.Process> processList = cpuMetric.getProcessList();
+    private final ObservableList<Process> processList = cpuMetric.getProcessList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

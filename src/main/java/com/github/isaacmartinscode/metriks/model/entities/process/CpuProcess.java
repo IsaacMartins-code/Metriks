@@ -1,4 +1,4 @@
-package com.github.isaacmartinscode.metriks.model.entities;
+package com.github.isaacmartinscode.metriks.model.entities.process;
 
 import oshi.software.os.OSProcess;
 import java.time.Duration;

@@ -1,7 +1,7 @@
 package com.github.isaacmartinscode.metriks.model.service;
 
-import com.github.isaacmartinscode.metriks.model.entities.MemProcess;
-import com.github.isaacmartinscode.metriks.model.entities.Process;
+import com.github.isaacmartinscode.metriks.model.entities.process.MemProcess;
+import com.github.isaacmartinscode.metriks.model.entities.process.Process;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;

@@ -1,6 +1,6 @@
 package com.github.isaacmartinscode.metriks.controller;
 
-import com.github.isaacmartinscode.metriks.model.entities.Process;
+import com.github.isaacmartinscode.metriks.model.entities.process.Process;
 import com.github.isaacmartinscode.metriks.model.service.MemMetric;
 import com.github.isaacmartinscode.metriks.model.util.ChangeView;
 import javafx.animation.KeyFrame;
@@ -46,22 +46,22 @@ public class MemViewController implements Initializable {
     private Label type;
 
     @FXML
-    private TableView<com.github.isaacmartinscode.metriks.model.entities.Process> tableView;
+    private TableView<Process> tableView;
 
     @FXML
     private TableColumn<Process, String> tCName;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCPid;
+    private TableColumn<Process, Integer> tCPid;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUsagePercentage;
+    private TableColumn<Process, String> tCUsagePercentage;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, Integer> tCThreads;
+    private TableColumn<Process, Integer> tCThreads;
 
     @FXML
-    private TableColumn<com.github.isaacmartinscode.metriks.model.entities.Process, String> tCUser;
+    private TableColumn<Process, String> tCUser;
 
     @FXML
     private AreaChart<Number, Number> areaChart;

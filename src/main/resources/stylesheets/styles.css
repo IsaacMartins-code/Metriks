@@ -21,3 +21,7 @@
 .memChart .chart-series-area-fill.series0 {
      -fx-fill: rgba(240, 140, 0, 0.3);
 }
+
+.storageProgressBar .bar {
+    -fx-background-color:  #f08c00;
+}
