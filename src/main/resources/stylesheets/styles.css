@@ -23,5 +23,11 @@
 }
 
 .storageProgressBar .bar {
-    -fx-background-color:  #f08c00;
+     -fx-background-color:  #f08c00;
+     -fx-background-insets: 0;
+     -fx-padding: 0;
+}
+
+.storageProgressBar .track {
+     -fx-background-color:  #9d9d9d;
 }

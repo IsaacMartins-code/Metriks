@@ -73,7 +73,7 @@
          </columnResizePolicy>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
-      <AreaChart fx:id="areaChart" animated="false" createSymbols="false" horizontalGridLinesVisible="false" layoutX="355.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="163.0" prefWidth="244.0" styleClass="memChart" stylesheets="@../../../../../stylesheets/areaChart.css" verticalGridLinesVisible="false">
+      <AreaChart fx:id="areaChart" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="355.0" layoutY="391.0" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="163.0" prefWidth="244.0" styleClass="memChart" stylesheets="@../../../../../stylesheets/styles.css" verticalGridLinesVisible="false">
         <xAxis>
           <NumberAxis fx:id="yAxis" animated="false" autoRanging="false" minorTickCount="1" minorTickLength="1.0" minorTickVisible="false" prefHeight="2.0" prefWidth="363.0" side="BOTTOM" tickLabelGap="1.0" tickLabelsVisible="false" tickLength="1.0" tickMarkVisible="false" tickUnit="1.0" upperBound="60.0" />
         </xAxis>
