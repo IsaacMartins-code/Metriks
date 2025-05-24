@@ -7,11 +7,11 @@
 }
 
 .cpuChart .chart-series-area-line.series1 {
-    -fx-stroke: #7abfff;
+    -fx-stroke: #5f96c6;
 }
 
 .cpuChart .chart-series-area-fill.series1 {
-    -fx-fill: rgba(122, 191, 255, 0.3);
+    -fx-fill: rgba(95, 150, 198, 0.3);
 }
 
 .memChart .chart-series-area-line.series0 {

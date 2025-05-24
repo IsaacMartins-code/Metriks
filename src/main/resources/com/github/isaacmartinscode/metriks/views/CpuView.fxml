@@ -142,7 +142,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="systemPercentage" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="414.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#7abfff">
+      <Label fx:id="systemPercentage" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="414.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#5f96c6">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

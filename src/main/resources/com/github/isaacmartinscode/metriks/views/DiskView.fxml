@@ -87,11 +87,11 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="writeSpeed" alignment="CENTER_RIGHT" layoutX="729.0" layoutY="415.0" prefHeight="25.0" prefWidth="64.0" text="--">
+      <Label fx:id="writeSpeed" alignment="CENTER_RIGHT" layoutX="729.0" layoutY="415.0" prefHeight="25.0" prefWidth="64.0" text="--" textFill="#f08c00">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Label>
-      <Label fx:id="readSpeed" alignment="CENTER_RIGHT" layoutX="729.0" layoutY="444.0" prefHeight="25.0" prefWidth="64.0" text="--">
+      <Label fx:id="readSpeed" alignment="CENTER_RIGHT" layoutX="729.0" layoutY="444.0" prefHeight="25.0" prefWidth="64.0" text="--" textFill="#5f96c6">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
