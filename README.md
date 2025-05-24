@@ -24,7 +24,7 @@ inspirada em gerenciadores nativos de sistemas operacionais.
 A seguir, screenshots de cada view e o que é possível ver.
 
 ## 🧮 Processador: 
-<img src="https://github.com/user-attachments/assets/d7d6103b-1dae-464f-8223-8ce8c9560086" alt = "CpuView">
+![CpuViewAtualizada](https://github.com/user-attachments/assets/abddc355-a585-486f-918d-1f5563228bc5)
 
 Nesta view, o usuário pode ver informações sobre o processador, como: 
 
@@ -47,15 +47,15 @@ E também uma lista de processos ativos no sistema, com especificações de:
 - Usuário executando o processo
 
 ## 💾 Memória RAM:
-<img src="https://github.com/user-attachments/assets/84c4a22c-77d7-4704-9db0-36c23e9300b6" alt = "MemView">
+![MemView](https://github.com/user-attachments/assets/b93409d5-51a1-4f91-b744-aa55aa15539d)
 
 Aqui, é possível ver informações de:
 
 - Quantidade total de memória
 - Total de memória disponível para uso 
-- Quantidade de memória sendo utilizada (valor em GB, porcentagem e gráfico)
+- Quantidade de memória sendo utilizada (valor em **GB**, porcentagem e gráfico)
 - Total de memória reservada para Hardware
-- Frequência das memórias em MHz
+- Frequência das memórias em **MHz**
 - Total de slots da placa-mãe usados
 - Tipo da memória
 
@@ -69,4 +69,21 @@ E também informações específicas de processos ativos:
 
 
 ## 📁 Disco: 
+![DiskView1](https://github.com/user-attachments/assets/e129287b-735e-4633-8504-31580add52ad)
+![DiskView2](https://github.com/user-attachments/assets/be366df8-6e2b-4331-96ae-abbcc1b8aedb)
+
+Na View de Disco, o usuário encontra informações de armazenamento do seu hardware, contando com uma lista de dispositivos de armazenamento e suas respectivas informações de: 
+
+- Nome 
+- Porcentagem de tempo de atividade
+- Capacidade de armazenamento
+- Quantidade de dados escritos e lidos (em **GB**)
+
+O usuário também pode selecionar um dispositivo dentro da lista, e acessar algumas informações adicionais: 
+
+- Quantidade utilizada do armazenamento (Em **GB** e barra de progresso representando o uso)
+- Velocidade de escrita e leitura do dispositivo, que varia entre **KB/s**, **MB/s** e **GB/s** de acordo com a velocidade
+- Capacidade real do dispositivo
+- Capacidade do dispositivo formatado
+
 ## 📡 Rede:
