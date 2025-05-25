@@ -47,11 +47,9 @@ public class MemMetric {
     }
 
     private static int convertMemoryFrequency() {
-        long totalHertz = 0;
-        for(PhysicalMemory memory : physicalMemories) {
-            totalHertz += memory.getClockSpeed();
-        }
-        totalHertz /= 2;
+        long totalHertz = physicalMemories.stream()
+                .sorted(Comparator.comparing(PhysicalMemory::getClockSpeed))
+                .toList().getFirst().getClockSpeed();
         return (int) (totalHertz / 1_000_000.0);
     }
 
