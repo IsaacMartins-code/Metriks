@@ -3,6 +3,7 @@ package com.github.isaacmartinscode.metriks.application;
 import com.github.isaacmartinscode.metriks.model.service.CpuMetric;
 import com.github.isaacmartinscode.metriks.model.service.DiskMetric;
 import com.github.isaacmartinscode.metriks.model.service.MemMetric;
+import com.github.isaacmartinscode.metriks.model.service.NetworkMetric;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Program extends Application {
     CpuMetric cpuMetric = new CpuMetric();
     MemMetric memMetric = new MemMetric();
     DiskMetric diskMetric = new DiskMetric();
+    NetworkMetric networkMetric = new NetworkMetric();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -27,11 +29,13 @@ public class Program extends Application {
         cpuMetric.initScheduledRefresh();
         memMetric.initScheduledRefresh();
         diskMetric.initScheduledRefresh();
+        networkMetric.initScheduledRefresh();
 
         stage.setOnCloseRequest(event -> {
             cpuMetric.endScheduledRefresh();
             memMetric.endScheduledRefresh();
             diskMetric.endScheduledRefresh();
+            networkMetric.endScheduledRefresh();
         });
     }
 

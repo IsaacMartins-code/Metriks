@@ -54,7 +54,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Label fx:id="hardwareName" alignment="CENTER" layoutX="617.0" layoutY="11.0" prefHeight="25.0" prefWidth="313.0" textAlignment="CENTER" textFill="#909090">
+                  <Label fx:id="adapterName" alignment="CENTER" layoutX="617.0" layoutY="11.0" prefHeight="25.0" prefWidth="313.0" textAlignment="CENTER" textFill="#909090">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
@@ -77,71 +77,71 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c3c3" height="144.0" layoutX="144.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="665.0" />
       <Label layoutX="614.0" layoutY="424.0" text="Enviar:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Label layoutX="614.0" layoutY="459.0" text="Receber:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="sendsPerSecond" layoutX="723.0" layoutY="420.0" prefHeight="25.0" prefWidth="79.0" text="--" textFill="#f08c00">
+      <Label fx:id="sent" layoutX="723.0" layoutY="420.0" prefHeight="25.0" prefWidth="79.0" text="--" textFill="#f08c00">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font></Label>
-      <Label fx:id="receivePerSecond" layoutX="722.0" layoutY="459.0" prefHeight="25.0" prefWidth="79.0" text="--" textFill="#5f96c6">
+      <Label fx:id="receive" layoutX="722.0" layoutY="455.0" prefHeight="25.0" prefWidth="79.0" text="--" textFill="#5f96c6">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Label layoutX="153.0" layoutY="424.0" text="Endereço Ipv4:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Label layoutX="153.0" layoutY="459.0" text="Endereço Ipv6:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="ipvSix" layoutX="263.0" layoutY="459.0" prefHeight="16.0" prefWidth="123.0" text="--">
+      <Label fx:id="ipvSix" layoutX="243.0" layoutY="459.0" prefHeight="16.0" prefWidth="173.0" text="--">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="ipvFour" layoutX="263.0" layoutY="424.0" prefHeight="16.0" prefWidth="123.0" text="--">
+      <Label fx:id="ipvFour" layoutX="243.0" layoutY="424.0" prefHeight="16.0" prefWidth="136.0" text="--">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Label layoutX="153.0" layoutY="494.0" text="Endereço MAC:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="mac" layoutX="263.0" layoutY="494.0" prefHeight="16.0" prefWidth="123.0" text="--">
+      <Label fx:id="mac" layoutX="243.0" layoutY="494.0" prefHeight="16.0" prefWidth="136.0" text="--">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="399.0" layoutY="424.0" text="Pacotes enviados:" textFill="#656565">
+      <Label layoutX="419.0" layoutY="424.0" text="Pacotes enviados:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="399.0" layoutY="459.0" text="Pacotes recebidos:" textFill="#656565">
+      <Label layoutX="419.0" layoutY="459.0" text="Pacotes recebidos:" textFill="#656565">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="packetsSent" layoutX="529.0" layoutY="424.0" prefHeight="16.0" prefWidth="79.0" text="--" textFill="#656565">
+      <Label fx:id="packetsSent" layoutX="529.0" layoutY="424.0" prefHeight="16.0" prefWidth="79.0" text="--">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="packetsReceived" layoutX="529.0" layoutY="459.0" prefHeight="16.0" prefWidth="79.0" text="--" textFill="#656565">
+      <Label fx:id="packetsReceived" layoutX="529.0" layoutY="459.0" prefHeight="16.0" prefWidth="79.0" text="--">
          <font>
-            <Font name="Arial" size="14.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Label>
    </children>
