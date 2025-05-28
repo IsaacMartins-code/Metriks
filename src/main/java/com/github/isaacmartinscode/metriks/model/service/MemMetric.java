@@ -10,6 +10,7 @@ import oshi.software.os.OSProcess;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +27,7 @@ public class MemMetric {
     private static final int frequency = convertMemoryFrequency();
     private static final int totalSlotsUsed = physicalMemories.size();
     private static final String type = physicalMemories.getFirst().getMemoryType();
-    private static final HashMap<Integer, MemProcess> processHashMap = new HashMap<>();
+    private static final Map<Integer, MemProcess> processHashMap = new HashMap<>();
     private static final ObservableList<Process> processList = FXCollections.observableArrayList();
     private static final ObservableList<XYChart.Data<Number, Number>> seriePointList = FXCollections.observableArrayList();
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -95,9 +96,6 @@ public class MemMetric {
     }
 
     public void initScheduledRefresh() {
-        if(updating) {
-            return;
-        }
         Runnable refresh = () -> {
             convertMemoryUsages();
             refreshProcessList();

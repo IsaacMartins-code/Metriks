@@ -20,12 +20,13 @@ public class NetworkMetric {
 
     public void refreshAdapterList() {
         List<NetworkIF> networkIFList = SystemService.hardware.getNetworkIFs();
-        List<String> activeStorages = networkIFList
+        List<String> activeAdapters = networkIFList
                 .stream()
                 .map(NetworkIF::getName)
                 .toList();
-        prevNetworkIF.keySet().removeIf(name -> !activeStorages.contains(name));
-        networkHashMap.keySet().removeIf(name -> !activeStorages.contains(name));
+        networkIFList.removeIf(adapter -> adapter.getIPv4addr().length == 0 || adapter.getIPv4addr()[0].isEmpty() && adapter.getIPv6addr().length == 0 || adapter.getIPv6addr()[0].isEmpty());
+        prevNetworkIF.keySet().removeIf(name -> !activeAdapters.contains(name));
+        networkHashMap.keySet().removeIf(name -> !activeAdapters.contains(name));
 
         for(NetworkIF adapter : networkIFList) {
             networkAdapter networkAdapter;
@@ -36,13 +37,9 @@ public class NetworkMetric {
                 networkAdapter.setPacketsSent(adapter.getPacketsSent());
                 networkAdapter.setPacketsReceived(adapter.getPacketsRecv());
             } else {
-                String[] ipvFour = adapter.getIPv4addr();
-                String[] ipvSix = adapter.getIPv6addr();
                 String[] interfaceName = adapter.getName().split("_");
-                if(ipvFour.length > 0 && ipvSix.length > 0) {
-                    networkAdapter = new networkAdapter(adapter.getDisplayName(), interfaceName[0], adapter.getBytesSent(), adapter.getBytesRecv(), ipvFour[0], ipvSix[0], adapter.getMacaddr(), adapter.getPacketsSent(), adapter.getPacketsRecv());
-                    networkHashMap.put(adapter.getName(), networkAdapter);
-                }
+                networkAdapter = new networkAdapter(adapter.getDisplayName(), interfaceName[0], adapter.getBytesSent(), adapter.getBytesRecv(), adapter.getIPv4addr()[0], adapter.getIPv6addr()[0], adapter.getMacaddr(), adapter.getPacketsSent(), adapter.getPacketsRecv());
+                networkHashMap.put(adapter.getName(), networkAdapter);
             }
             prevNetworkIF.put(adapter.getName(), adapter);
         }
@@ -54,8 +51,10 @@ public class NetworkMetric {
     }
 
     public void initScheduledRefresh() {
-        Runnable refresh = () -> refreshAdapterList();
-        updating = true;
+        Runnable refresh = () -> {
+            refreshAdapterList();
+            updating = true;
+        };
         scheduler.scheduleAtFixedRate(refresh, 0, (long) 1.5, TimeUnit.SECONDS);
     }
 

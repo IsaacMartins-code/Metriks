@@ -36,6 +36,11 @@ public class CpuProcess extends Process {
 
     public void calcUsagePercentage(OSProcess previousTick, OSProcess currentTick, int totalLogicCore) {
         cpuUsage = currentTick.getProcessCpuLoadBetweenTicks(previousTick) * 100.0 / totalLogicCore;
-        formattedUsagePercentage = String.format("%.1f", cpuUsage) + " %";
+        if(cpuUsage >= 0) {
+            formattedUsagePercentage = String.format("%.1f", cpuUsage) + " %";
+        } else {
+            cpuUsage = 0;
+            formattedUsagePercentage = "0,0 %";
+        }
     }
 }

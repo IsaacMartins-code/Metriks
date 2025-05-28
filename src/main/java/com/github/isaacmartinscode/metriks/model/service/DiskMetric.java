@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import oshi.hardware.HWDiskStore;
 import oshi.hardware.HWPartition;
 import oshi.software.os.OSFileStore;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +14,8 @@ import java.util.stream.Collectors;
 
 public class DiskMetric {
 
-    private static HashMap<String, Storage> storageHashMap = new HashMap<>();
-    private static HashMap<String, HWDiskStore> prevHwDiskStore = new HashMap<>();
+    private static Map<String, Storage> storageHashMap = new HashMap<>();
+    private static Map<String, HWDiskStore> prevHwDiskStore = new HashMap<>();
     private static List<HWDiskStore> hwDiskStoreList = new ArrayList<>();
     private static List<OSFileStore> osFileStoreList = new ArrayList<>();
     private static ObservableList<Storage> storageList = FXCollections.observableArrayList();
@@ -68,9 +65,6 @@ public class DiskMetric {
     }
 
     public void initScheduledRefresh() {
-        if(updating) {
-            return;
-        }
         Runnable refresh = () -> {
             refreshStorageList();
             updating = true;

@@ -31,33 +31,43 @@ public class networkAdapter {
     }
 
     public void calcSentSpeed(long prevBytes, long currentBytes) {
-        long bits = Math.max(0 , currentBytes - prevBytes) * 8;
+        long bits;
+        if(currentBytes >= prevBytes) {
+            bits = (currentBytes - prevBytes) * 8;
+        } else {
+            bits = 0;
+        }
         if(bits >= 1_000_000_000) {
-            sendSpeed = bits / Math.pow(1024, 3);
+            sendSpeed = bits / Math.pow(1000, 3);
             formattedSendSpeed = String.format("%.1f", sendSpeed) + " Gbps";
 
         } else if (bits >= 1_000_000) {
-            sendSpeed = bits / Math.pow(1024, 2);
+            sendSpeed = bits / Math.pow(1000, 2);
             formattedSendSpeed = String.format("%.1f", sendSpeed) + " Mbps";
 
         } else {
-            sendSpeed = bits / 1024.0;
+            sendSpeed = bits / 1000.0;
             formattedSendSpeed = String.format("%.1f", sendSpeed) + " Kbps";
         }
     }
 
     public void calcReceivedSpeed(long prevBytes, long currentBytes) {
-        long bits = (currentBytes - prevBytes) * 8;
+        long bits;
+        if(currentBytes >= prevBytes) {
+            bits = (currentBytes - prevBytes) * 8;
+        } else {
+            bits = 0;
+        }
         if(bits >= 1_000_000_000) {
-            receiveSpeed = bits / Math.pow(1024, 3);
+            receiveSpeed = bits / Math.pow(1000, 3);
             formattedReceiveSpeed = String.format("%.1f", receiveSpeed) + " Gbps";
 
         } else if (bits >= 1_000_000) {
-            receiveSpeed = bits / Math.pow(1024, 2);
+            receiveSpeed = bits / Math.pow(1000, 2);
             formattedReceiveSpeed = String.format("%.1f", receiveSpeed) + " Mbps";
 
         } else {
-            receiveSpeed = bits / 1024.0;
+            receiveSpeed = bits / 1000.0;
             formattedReceiveSpeed = String.format("%.1f", receiveSpeed) + " Kbps";
         }
     }

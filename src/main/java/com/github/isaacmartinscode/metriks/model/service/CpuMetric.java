@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import oshi.hardware.CentralProcessor;
 import oshi.software.os.OSProcess;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,8 +24,8 @@ public class CpuMetric {
     private static int totalProcesses = 0, totalProcessesThreads = 0;
     private static long[] prevTicks = SystemService.cpu.getSystemCpuLoadTicks();
     private static List<OSProcess> processes = new ArrayList<>();
-    private static final HashMap<Integer, OSProcess> prevOSProcess = new HashMap<>();
-    private static final HashMap<Integer, CpuProcess> processHashMap =  new HashMap<>();
+    private static final Map<Integer, OSProcess> prevOSProcess = new HashMap<>();
+    private static final Map<Integer, CpuProcess> processHashMap =  new HashMap<>();
     private static final ObservableList<Process> processList = FXCollections.observableArrayList();
     private static final ObservableList<XYChart.Data<Number, Number>> userSeriePointList = FXCollections.observableArrayList();
     private static final ObservableList<XYChart.Data<Number, Number>> systemSeriePointList = FXCollections.observableArrayList();
@@ -47,8 +44,13 @@ public class CpuMetric {
                 totalTimeVariation += (currentTicks[i] - prevTicks[i]);
             }
 
-            userPercentage = (double) userTimeVariation / totalTimeVariation * 100.0;
-            systemPercentage = (double) systemTimeVariation / totalTimeVariation * 100.0;
+            if(totalTimeVariation > 0 && userTimeVariation >= 0 && systemTimeVariation >= 0) {
+                userPercentage = (double) userTimeVariation / totalTimeVariation * 100.0;
+                systemPercentage = (double) systemTimeVariation / totalTimeVariation * 100.0;
+            } else {
+                userPercentage = 0;
+                systemPercentage = 0;
+            }
 
             prevTicks = currentTicks;
         }
@@ -65,6 +67,7 @@ public class CpuMetric {
 
     private void refreshProcessList() {
         processes = SystemService.os.getProcesses();
+        calcProcessInfo();
         processes.removeIf(p -> p.getState() == OSProcess.State.INVALID || p.getName().equalsIgnoreCase("Idle") || p.getName().equalsIgnoreCase("Memory Compression"));
         List<Integer> activeProcesses = processes
                 .stream()
@@ -109,13 +112,9 @@ public class CpuMetric {
     }
 
     public void initScheduledRefresh() {
-        if(updating) {
-            return;
-        }
         Runnable refresh = () -> {
             calcUsagePercentage();
             refreshProcessList();
-            calcProcessInfo();
             refreshSeriePointLists();
             updating = true;
         };

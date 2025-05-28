@@ -29,7 +29,12 @@ public class Storage {
     }
 
     public void calcWriteSpeed(long prevBytes, long currentBytes) {
-        long bytes = (currentBytes - prevBytes);
+        long bytes;
+        if(currentBytes >= prevBytes) {
+            bytes = (currentBytes - prevBytes);
+        } else {
+            bytes = 0;
+        }
         if(bytes >= 1_000_000_000) {
             writeSpeed = bytes / Math.pow(1024, 3);
             formattedWriteSpeed = String.format("%.1f", writeSpeed) + " GB/s";
@@ -38,14 +43,19 @@ public class Storage {
             writeSpeed = bytes / Math.pow(1024, 2);
             formattedWriteSpeed = String.format("%.1f", writeSpeed) + " MB/s";
 
-        } else if(bytes >= 1_000 || bytes < 1_000) {
+        } else {
             writeSpeed = bytes / 1024.0;
             formattedWriteSpeed = String.format("%.1f", writeSpeed) + " KB/s";
         }
     }
 
     public void calcReadSpeed(long prevBytes, long currentBytes) {
-        long bytes = (currentBytes - prevBytes);
+        long bytes;
+        if(currentBytes >= prevBytes) {
+            bytes = (currentBytes - prevBytes);
+        } else {
+            bytes = 0;
+        }
         if(bytes >= 1_000_000_000) {
             readSpeed = bytes / Math.pow(1024, 3);
             formattedReadSpeed = String.format("%.1f", readSpeed) + " GB/s";
@@ -54,14 +64,18 @@ public class Storage {
             readSpeed = bytes / Math.pow(1024, 2);
             formattedReadSpeed = String.format("%.1f", readSpeed) + " MB/s";
 
-        } else if(bytes >= 1_000 || bytes < 1_000) {
+        } else {
             readSpeed = bytes / 1024.0;
             formattedReadSpeed = String.format("%.1f", readSpeed) + " KB/s";
         }
     }
 
     public void calcUptimePercentage(long prevTransferTime, long currentTransferTime) {
-        uptimePercentage = ((currentTransferTime - prevTransferTime) / 1500.0) * 100.0;
+        if(currentTransferTime >= prevTransferTime) {
+            uptimePercentage = ((currentTransferTime - prevTransferTime) / 1500.0) * 100.0;
+        } else {
+            uptimePercentage = 0;
+        }
         formattedUptimePercentage = (int) uptimePercentage + " %";
     }
 
