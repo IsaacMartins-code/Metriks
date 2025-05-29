@@ -24,7 +24,8 @@ inspirada em gerenciadores nativos de sistemas operacionais.
 A seguir, screenshots de cada view e o que é possível ver.
 
 ## 🧮 Processador: 
-![CpuViewAtualizada](https://github.com/user-attachments/assets/abddc355-a585-486f-918d-1f5563228bc5)
+![CpuView](https://github.com/user-attachments/assets/53e05398-7725-491f-b3f9-639326787567)
+
 
 Nesta view, o usuário pode ver informações sobre o processador, como: 
 
@@ -47,7 +48,8 @@ E também uma lista de processos ativos no sistema, com especificações de:
 - Usuário executando o processo
 
 ## 💾 Memória RAM:
-![MemView](https://github.com/user-attachments/assets/b93409d5-51a1-4f91-b744-aa55aa15539d)
+![MemView](https://github.com/user-attachments/assets/40d63de2-72f3-4435-bd40-2ab2e799d4aa)
+
 
 Aqui, é possível ver informações de:
 
@@ -69,8 +71,8 @@ E também informações específicas de processos ativos:
 
 
 ## 📁 Disco: 
-![DiskView1](https://github.com/user-attachments/assets/e129287b-735e-4633-8504-31580add52ad)
-![DiskView2](https://github.com/user-attachments/assets/be366df8-6e2b-4331-96ae-abbcc1b8aedb)
+![DiskView](https://github.com/user-attachments/assets/e6559dbb-b5bb-45ee-b27b-be86eb28737e)
+
 
 Na View de Disco, o usuário encontra informações de armazenamento do seu hardware, contando com uma lista de dispositivos de armazenamento e suas respectivas informações de: 
 
@@ -87,3 +89,20 @@ O usuário também pode selecionar um dispositivo dentro da lista, e acessar alg
 - Capacidade do dispositivo formatado
 
 ## 📡 Rede:
+![NetworkView](https://github.com/user-attachments/assets/d0550681-3652-4477-b63d-d6325079b076)
+
+Na view rede, é possível ver quantos adaptadores de rede estão presentes no seu hardware, com informações de: 
+
+- Nome
+- Tipo de interface
+- Quantidade de **GB** enviados
+- Quantidade de **GB** recebidos
+
+Também é possível selecionar um adaptador dentro da lista e obter mais informações, como: 
+
+- Endereço Ipv4 (sensurado por questões de privacidade)
+- Endereço Ipv6 (sensurado por questões de privacidade)
+- Endereço MAC (sensurado por questões de privacidade)
+- Pacotes enviados
+- Pacotes recebidos
+- velocidade de envio e recepção de dados, que varia entre **Kbps**, **Mbps** e **Gbps** de acordo com a velocidade
