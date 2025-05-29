@@ -70,9 +70,9 @@ public class NetworkViewController implements Initializable {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             if (newSel != null) {
                 adapterName.setText(newSel.getAdapterName());
-                ipvFour.setText(newSel.getIpvFour());
-                ipvSix.setText(newSel.getIpvSix());
-                mac.setText(newSel.getMac());
+                //ipvFour.setText(newSel.getIpvFour());
+                //ipvSix.setText(newSel.getIpvSix());
+                //mac.setText(newSel.getMac());
                 Platform.runLater(() -> {
                     packetsSent.setText(String.valueOf(newSel.getPacketsSent()));
                     packetsReceived.setText(String.valueOf(newSel.getPacketsReceived()));
