@@ -8,7 +8,7 @@ inspirada em gerenciadores nativos de sistemas operacionais.
 
 ## 📚Conceitos e tecnologias utilizadas: 
 
-- Java 
+- Java (JDK 21.0.6 LTS)
 - Orientação a Objetos
 - JavaFX
 - OSHI
