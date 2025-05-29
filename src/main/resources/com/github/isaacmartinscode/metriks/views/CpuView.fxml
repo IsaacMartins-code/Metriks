@@ -20,7 +20,7 @@
    <children>
       <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="950.0">
          <items>
-            <AnchorPane prefHeight="45.0" prefWidth="937.0">
+            <AnchorPane prefHeight="45.0" prefWidth="937.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="164.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -87,7 +87,7 @@
           <NumberAxis animated="false" autoRanging="false" minorTickLength="1.0" side="LEFT" tickLabelGap="1.0" tickLabelsVisible="false" tickLength="1.0" tickMarkVisible="false" tickUnit="1.0" fx:id="xAxis" />
         </yAxis>
       </AreaChart>
-      <Label layoutX="159.0" layoutY="444.0" prefHeight="25.0" prefWidth="51.0" text="Usuário:" textFill="#656565">
+      <Label layoutX="159.0" layoutY="443.0" prefHeight="25.0" prefWidth="51.0" text="Usuário:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -97,37 +97,37 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="159.0" layoutY="471.0" prefHeight="25.0" prefWidth="70.0" text="Processos:" textFill="#656565">
+      <Label layoutX="159.0" layoutY="470.0" prefHeight="25.0" prefWidth="70.0" text="Processos:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="159.0" layoutY="498.0" prefHeight="25.0" prefWidth="57.0" text="Threads:" textFill="#656565">
+      <Label layoutX="159.0" layoutY="497.0" prefHeight="25.0" prefWidth="57.0" text="Threads:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="totalProcesses" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="473.0" prefHeight="25.0" prefWidth="51.0" text="--">
+      <Label fx:id="totalProcesses" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="472.0" prefHeight="25.0" prefWidth="51.0" text="--">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="totalProcessesThreads" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="500.0" prefHeight="25.0" prefWidth="51.0" text="--">
+      <Label fx:id="totalProcessesThreads" alignment="CENTER_RIGHT" layoutX="309.0" layoutY="499.0" prefHeight="25.0" prefWidth="51.0" text="--">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="415.0" prefHeight="25.0" prefWidth="103.0" text="Velocidade base:" textFill="#656565">
+      <Label layoutX="590.0" layoutY="414.0" prefHeight="25.0" prefWidth="103.0" text="Velocidade base:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="445.0" prefHeight="25.0" prefWidth="57.0" text="Núcleos: " textFill="#656565">
+      <Label layoutX="590.0" layoutY="444.0" prefHeight="25.0" prefWidth="57.0" text="Núcleos: " textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="473.0" prefHeight="25.0" prefWidth="145.0" text="Processadores Lógicos:" textFill="#656565">
+      <Label layoutX="590.0" layoutY="472.0" prefHeight="25.0" prefWidth="145.0" text="Processadores Lógicos:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -147,7 +147,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="userPercentage" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="445.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#f08c00">
+      <Label fx:id="userPercentage" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="444.0" prefHeight="25.0" prefWidth="45.0" text="--%" textFill="#f08c00">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

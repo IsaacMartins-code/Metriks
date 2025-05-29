@@ -20,7 +20,7 @@
    <children>
       <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="950.0">
          <items>
-            <AnchorPane prefHeight="45.0" prefWidth="937.0">
+            <AnchorPane prefHeight="45.0" prefWidth="937.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="164.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -81,7 +81,7 @@
           <NumberAxis animated="false" autoRanging="false" minorTickCount="1" minorTickLength="1.0" side="LEFT" tickLabelGap="1.0" tickLabelsVisible="false" tickLength="1.0" tickMarkVisible="false" tickUnit="1.0" fx:id="xAxis" />
         </yAxis>
       </AreaChart>
-      <Label layoutX="159.0" layoutY="473.0" prefHeight="25.0" prefWidth="51.0" text="Em uso:" textFill="#656565">
+      <Label layoutX="159.0" layoutY="474.0" prefHeight="25.0" prefWidth="51.0" text="Em uso:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -91,17 +91,17 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="415.0" prefHeight="25.0" prefWidth="77.0" text="Frequência:" textFill="#656565">
+      <Label layoutX="590.0" layoutY="413.0" prefHeight="25.0" prefWidth="77.0" text="Frequência:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="590.0" layoutY="445.0" prefHeight="25.0" prefWidth="84.0" text="Slots em uso:" textFill="#656565">
+      <Label layoutX="590.0" layoutY="443.0" prefHeight="25.0" prefWidth="84.0" text="Slots em uso:" textFill="#656565">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="usedSlots" alignment="CENTER_RIGHT" layoutX="745.0" layoutY="444.0" prefHeight="25.0" prefWidth="58.0" text="--">
+      <Label fx:id="usedSlots" alignment="CENTER_RIGHT" layoutX="745.0" layoutY="443.0" prefHeight="25.0" prefWidth="58.0" text="--">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -111,7 +111,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="frequency" alignment="CENTER_RIGHT" layoutX="708.0" layoutY="414.0" prefHeight="25.0" prefWidth="96.0" text="-- MHz">
+      <Label fx:id="frequency" alignment="CENTER_RIGHT" layoutX="708.0" layoutY="413.0" prefHeight="25.0" prefWidth="96.0" text="-- MHz">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -131,7 +131,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="type" alignment="CENTER_RIGHT" layoutX="726.0" layoutY="473.0" prefHeight="25.0" prefWidth="77.0" text="--">
+      <Label fx:id="type" alignment="CENTER_RIGHT" layoutX="726.0" layoutY="474.0" prefHeight="25.0" prefWidth="77.0" text="--">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

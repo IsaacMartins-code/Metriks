@@ -19,7 +19,7 @@
    <children>
       <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="950.0">
          <items>
-            <AnchorPane prefHeight="45.0" prefWidth="937.0">
+            <AnchorPane prefHeight="45.0" prefWidth="937.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="164.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
