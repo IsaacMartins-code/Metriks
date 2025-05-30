@@ -93,7 +93,6 @@ public class NetworkViewController implements Initializable {
     }
 
     private void refreshUI() {
-        networkMetric.refreshAdapterList();
         if(adapter != null) {
             packetsSent.setText(String.valueOf(adapter.getPacketsSent()));
             packetsReceived.setText(String.valueOf(adapter.getPacketsReceived()));

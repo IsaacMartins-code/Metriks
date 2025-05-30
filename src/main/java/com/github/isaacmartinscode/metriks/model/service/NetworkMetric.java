@@ -18,7 +18,7 @@ public class NetworkMetric {
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private static boolean updating = false;
 
-    public void refreshAdapterList() {
+    private void refreshAdapterList() {
         List<NetworkIF> networkIFList = SystemService.hardware.getNetworkIFs();
         List<String> activeAdapters = networkIFList
                 .stream()
