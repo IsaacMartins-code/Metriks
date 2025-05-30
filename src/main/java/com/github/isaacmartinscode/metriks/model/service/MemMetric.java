@@ -69,7 +69,7 @@ public class MemMetric {
             String user = p.getUser().equals("unknown") ? "Desconhecido" : p.getUser();
             if (updating && processHashMap.containsKey(pid)) {
                 memProcess = processHashMap.get(pid);
-                memProcess.calcUsagePercentage(p.getResidentSetSize());
+                memProcess.calcUsagePercentage(p.getResidentSetSize(), usableMemory);
             } else {
                 memProcess = new MemProcess(p.getName(), pid, p.getThreadCount(), user);
                 processHashMap.put(pid, memProcess);
@@ -77,7 +77,7 @@ public class MemMetric {
         }
         processList.setAll(processHashMap.values()
                 .stream()
-                .sorted(Comparator.comparing(MemProcess::getFormattedUsagePercentage).reversed())
+                .sorted(Comparator.comparing(MemProcess::getMemUsage).reversed())
                 .collect(Collectors.toList())
         );
     }
