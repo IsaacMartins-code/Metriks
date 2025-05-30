@@ -93,7 +93,7 @@ public class CpuMetric {
         }
         processList.setAll(processHashMap.values()
                         .stream()
-                        .sorted(Comparator.comparing(CpuProcess::getFormattedUsagePercentage).reversed())
+                        .sorted(Comparator.comparing(CpuProcess::getCpuUsage).reversed())
                         .collect(Collectors.toList())
         );
     }

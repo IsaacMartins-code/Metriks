@@ -45,7 +45,7 @@ public class NetworkMetric {
         }
         adapterList.setAll(networkHashMap.values()
                 .stream()
-                .sorted(Comparator.comparing(networkAdapter::getInterfaceName).reversed())
+                .sorted(Comparator.comparing(networkAdapter::getPacketsSent).reversed())
                 .collect(Collectors.toList())
         );
     }
