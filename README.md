@@ -26,7 +26,6 @@ A seguir, screenshots de cada view e o que é possível ver.
 ## 🧮 Processador: 
 ![CpuView](https://github.com/user-attachments/assets/53e05398-7725-491f-b3f9-639326787567)
 
-
 Nesta view, o usuário pode ver informações sobre o processador, como: 
 
 - Nome
@@ -48,8 +47,7 @@ E também uma lista de processos ativos no sistema, com especificações de:
 - Usuário executando o processo
 
 ## 💾 Memória RAM:
-![MemView](https://github.com/user-attachments/assets/40d63de2-72f3-4435-bd40-2ab2e799d4aa)
-
+![MemView](https://github.com/user-attachments/assets/72c6b9d9-1ac8-4736-a7f8-2ac17e0e483b)
 
 Aqui, é possível ver informações de:
 
@@ -69,10 +67,8 @@ E também informações específicas de processos ativos:
 - Threads usadas
 - Usuário executando o processo
 
-
 ## 📁 Disco: 
 ![DiskView](https://github.com/user-attachments/assets/e6559dbb-b5bb-45ee-b27b-be86eb28737e)
-
 
 Na View de Disco, o usuário encontra informações de armazenamento do seu hardware, contando com uma lista de dispositivos de armazenamento e suas respectivas informações de: 
 
