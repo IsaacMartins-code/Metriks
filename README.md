@@ -85,7 +85,7 @@ O usuário também pode selecionar um dispositivo dentro da lista, e acessar alg
 - Capacidade do dispositivo formatado
 
 ## 📡 Rede:
-![NetworkView](https://github.com/user-attachments/assets/d0550681-3652-4477-b63d-d6325079b076)
+![NetworkView](https://github.com/user-attachments/assets/7f3ec197-15b5-4ebf-996b-0e2218b9f746)
 
 Na view rede, é possível ver quantos adaptadores de rede estão presentes no seu hardware, com informações de: 
 
@@ -96,9 +96,11 @@ Na view rede, é possível ver quantos adaptadores de rede estão presentes no s
 
 Também é possível selecionar um adaptador dentro da lista e obter mais informações, como: 
 
-- Endereço Ipv4 (sensurado por questões de privacidade)
-- Endereço Ipv6 (sensurado por questões de privacidade)
-- Endereço MAC (sensurado por questões de privacidade)
+- Endereço Ipv4
+- Endereço Ipv6 
+- Endereço MAC 
 - Pacotes enviados
 - Pacotes recebidos
 - velocidade de envio e recepção de dados, que varia entre **Kbps**, **Mbps** e **Gbps** de acordo com a velocidade
+
+⚠ Endereços IP e MAC mascarados na imagem por questões de privacidade!
