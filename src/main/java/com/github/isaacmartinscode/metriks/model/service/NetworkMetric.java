@@ -14,7 +14,7 @@ public class NetworkMetric {
 
     private static final Map<String, networkAdapter> networkHashMap = new HashMap<>();
     private static final Map<String, NetworkIF> prevNetworkIF = new HashMap<>();
-    private static ObservableList<networkAdapter> adapterList = FXCollections.observableArrayList();
+    private static final ObservableList<networkAdapter> adapterList = FXCollections.observableArrayList();
     private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private static boolean updating = false;
 
