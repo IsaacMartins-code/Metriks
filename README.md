@@ -103,4 +103,4 @@ Também é possível selecionar um adaptador dentro da lista e obter mais inform
 - Pacotes recebidos
 - velocidade de envio e recepção de dados, que varia entre **Kbps**, **Mbps** e **Gbps** de acordo com a velocidade
 
-⚠ Endereços IP e MAC mascarados na imagem por questões de privacidade!
+⚠ Endereços IP e MAC utilizados na imagem acima são fictícios por questões de privacidade, mas os endereços reais são mostrados durante a execução do programa.
