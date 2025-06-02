@@ -29,8 +29,8 @@ A seguir, screenshots de cada view e o que é possível ver.
 Nesta view, o usuário pode ver informações sobre o processador, como: 
 
 - Nome
-- Porcentagem usada pelo sistema (valores e gráfico)
-- Porcentagem usada pelos usuários (valores e gráfico)
+- Porcentagem usada pelo sistema (porcentagem e gráfico)
+- Porcentagem usada pelos usuários (porcentagem e gráfico)
 - Quantidade de Processos rodando
 - Quantidade total de Threads consumidas por todos os Processos
 - Clock Base
